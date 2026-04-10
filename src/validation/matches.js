@@ -24,9 +24,7 @@ export const matchIdParamSchema = z.object({
 
 // Helper for ISO date validation
 const isValidISODate = (val) => {
-  if (typeof val !== 'string') return false;
-  const date = new Date(val);
-  return !isNaN(date.getTime()) && val === date.toISOString();
+  return typeof val === 'string' && !isNaN(new Date(val).getTime());
 };
 
 // Schema for creating a match
